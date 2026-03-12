@@ -2,7 +2,7 @@
 
 ## 1. Visão Geral
 
-Nina é um app educacional para crianças neurodivergentes de 4 a 12 anos, focado em alfabetização. O personagem-guia é um trenzinho dourado com rosto amigável e orelhas grandes de cocker spaniel inglês.
+Nina é um app educacional para crianças neurodivergentes de 4 a 12 anos, focado em alfabetização. A personagem-guia é uma trenzinho dourada com rosto amigável e orelhas grandes de cocker spaniel inglês.
 
 **Estilo visual:** Cartoon Vibrante
 **Princípio central:** Divertido e envolvente, com controle de estímulos para não sobrecarregar.
@@ -42,13 +42,13 @@ Nina é um app educacional para crianças neurodivergentes de 4 a 12 anos, focad
 | Corpo de texto | Quicksand | Medium | 18-20sp |
 | Letras para aprender | Nunito | ExtraBold | 80-120sp |
 | Botões | Nunito | Bold | 20sp |
-| Dicas do Nina | Quicksand | SemiBold | 16-18sp |
+| Dicas da Nina | Quicksand | SemiBold | 16-18sp |
 
 Todas as fontes são Google Fonts (gratuitas).
 
 ---
 
-## 4. O Personagem Nina
+## 4. A Personagem Nina
 
 ### 4.1 Descrição Visual
 
@@ -79,14 +79,14 @@ Todas as fontes são Google Fonts (gratuitas).
 |---|---|---|
 | Feliz | Sorriso grande, orelhas levantadas, olhos brilhando | Acerto, boas-vindas |
 | Comemorando | Olhos de estrela, fumaça colorida, apito | Completar atividade |
-| Pensativo | Olho levemente fechado, orelha inclinada | Esperando resposta |
+| Pensativa | Olho levemente fechado, orelha inclinada | Esperando resposta |
 | Encorajando | Sorriso suave, aceno com orelha | Após erro |
-| Surpreso | Olhos arregalados, orelhas para cima | Descoberta nova |
+| Surpresa | Olhos arregalados, orelhas para cima | Descoberta nova |
 | Dormindo | Olhos fechados, "zzz" | Tela de pausa |
 
 ### 4.4 Vagões
 
-Cada módulo do app é representado por um vagão acoplado ao Nina:
+Cada módulo do app é representado por um vagão acoplado à Nina:
 
 | Vagão | Cor | Módulo | Ícone |
 |---|---|---|---|
@@ -99,7 +99,7 @@ Cada módulo do app é representado por um vagão acoplado ao Nina:
 ## 5. Mundo do MVP: A Estação
 
 Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem**, que é:
-- Tematicamente coerente com o personagem (trenzinho)
+- Tematicamente coerente com a personagem (trenzinho)
 - Visualmente simples de produzir
 - Intuitivo para a metáfora de progresso (estações = etapas)
 
@@ -152,7 +152,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 │          🚂                     │
 │         NINA                    │
 │                                 │
-│    "Vamos aprender juntos!"     │
+│    "Vamos aprender juntas!"     │
 │                                 │
 │         [● ● ●]                 │
 │     (loading animado)           │
@@ -440,7 +440,7 @@ Home (Estação Central)
 | Vogais Completas | Aprender A, E, I, O, U | 🌟 |
 | Meia Estrada | Completar 13 letras | 🛤️ |
 | Alfabeto Completo | Completar todas as 26 letras | 🏆 |
-| Explorador | Revisitar 5 letras já aprendidas | 🔍 |
+| Exploradora | Revisitar 5 letras já aprendidas | 🔍 |
 | Traço Perfeito | Traçar 10 letras com sucesso | ✏️ |
 
 ---
@@ -451,15 +451,15 @@ Home (Estação Central)
 
 | Categoria | Exemplos | Volume padrão |
 |---|---|---|
-| Voz do Nina (TTS) | "Olá!", "A de Abelha!", "Muito bem!" | 100% |
+| Voz da Nina (TTS) | "Olá!", "A de Abelha!", "Muito bem!" | 100% |
 | Sons fonéticos | Som de cada letra | 100% |
 | Efeitos | Acerto, confete, apito do trem | 80% |
 | Música de fundo | Melodia suave e repetitiva | 40% |
 
-### 9.2 Frases do Nina (PT-BR)
+### 9.2 Frases da Nina (PT-BR)
 
 **Boas-vindas:**
-- "Olá! Eu sou o Nina! Vamos aprender juntos?"
+- "Olá! Eu sou a Nina! Vamos aprender juntas?"
 - "Que bom te ver de volta!"
 
 **Durante atividade:**
@@ -514,7 +514,7 @@ Home (Estação Central)
 - [OpenGameArt](https://opengameart.org/) — sprites e cenários
 - [Kenney.nl](https://kenney.nl/) — assets de jogos gratuitos
 - [unDraw](https://undraw.co/) — ilustrações SVG
-- Criar o Nina manualmente com formas simples no Flutter (CustomPainter)
+- Criar a Nina manualmente com formas simples no Flutter (CustomPainter)
 
 ### Fontes
 - [Google Fonts](https://fonts.google.com/) — Nunito, Quicksand
@@ -522,7 +522,7 @@ Home (Estação Central)
 ### Sons
 - [Freesound](https://freesound.org/) — efeitos sonoros
 - [Pixabay Audio](https://pixabay.com/music/) — músicas de fundo
-- Flutter TTS para voz do Nina
+- Flutter TTS para voz da Nina
 
 ### Ícones
 - [Material Icons](https://fonts.google.com/icons) — incluídos no Flutter

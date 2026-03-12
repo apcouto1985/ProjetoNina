@@ -2,7 +2,7 @@
 
 **Nina** é um aplicativo educacional gratuito, sem anúncios e sem compras, projetado para ajudar crianças neurodivergentes de 4 a 12 anos na identificação de letras e números, apoiando o processo de alfabetização.
 
-O personagem-guia é um trenzinho simpático chamado Nina, com rosto amigável e orelhas grandes de cocker spaniel inglês, que acompanha a criança em toda a jornada de aprendizado.
+A personagem-guia é uma trenzinho simpática chamada Nina, com rosto amigável e orelhas grandes de cocker spaniel inglês, que acompanha a criança em toda a jornada de aprendizado.
 
 ---
 
@@ -20,7 +20,7 @@ Criar uma ferramenta de alfabetização que:
 - Reconhecimento de letras A-Z com som fonético
 - Traçar letras com o dedo (escrita guiada)
 - Palavra associada por letra (A = Abelha, B = Bola...)
-- Trenzinho Nina como personagem-guia
+- Trenzinho Nina como personagem-guia (feminina)
 - Sistema de estrelas como recompensa
 - Mundo temático: Estação (ambiente simples e acolhedor)
 - Painel dos pais com progresso e configurações sensoriais
