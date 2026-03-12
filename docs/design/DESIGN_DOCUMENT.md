@@ -2,7 +2,7 @@
 
 ## 1. Visão Geral
 
-Nina é um app educacional para crianças neurodivergentes de 4 a 12 anos, focado em alfabetização. A personagem-guia é uma trenzinho dourada com rosto amigável e orelhas grandes de cocker spaniel inglês.
+Nina é um app educacional para crianças neurodivergentes de 4 a 12 anos, focado em alfabetização. A personagem-guia é um trenzinho dourado com rosto amigável e orelhas grandes de cocker spaniel inglês.
 
 **Estilo visual:** Cartoon Vibrante
 **Princípio central:** Divertido e envolvente, com controle de estímulos para não sobrecarregar.
@@ -58,7 +58,7 @@ Todas as fontes são Google Fonts (gratuitas).
       │   ╰─────╯    │
   ~~~~│               │~~~~  ← Orelhas grandes de cocker spaniel (caídas, macias)
       │  ┌─────────┐  │
-      │  │  NINA   │  │     ← Corpo arredondado, cor dourada (#DAA520)
+      │  │  NINA   │  │     ← Corpo arredondado, cor dourado (#DAA520)
       │  └─────────┘  │
       ╰───┬──┬──┬──┬──╯
           ○  ○  ○  ○        ← Rodas arredondadas
@@ -67,7 +67,7 @@ Todas as fontes são Google Fonts (gratuitas).
 
 ### 4.2 Características
 
-- **Corpo:** Arredondado, sem arestas, cor dourada (#DAA520)
+- **Corpo:** Arredondado, sem arestas, cor dourado (#DAA520)
 - **Rosto:** Olhos grandes e expressivos, sorriso gentil, bochechas rosadas
 - **Orelhas:** Grandes e caídas como de um cocker spaniel inglês, macias e expressivas (se animam com as emoções)
 - **Chaminé:** Pequena, solta fumaça colorida nas comemorações
@@ -152,7 +152,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 │          🚂                     │
 │         NINA                    │
 │                                 │
-│    "Vamos aprender juntas!"     │
+│    "Vamos aprender juntos!"     │
 │                                 │
 │         [● ● ●]                 │
 │     (loading animado)           │
@@ -312,7 +312,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 │                                 │
 │  ┌─────────┐    ┌─────────┐   │
 │  │         │    │         │   │
-│  │    R    │    │    A    │   │
+│  │    R    │    │    G    │   │
 │  │         │    │         │   │
 │  └─────────┘    └─────────┘   │
 │                                 │
@@ -386,7 +386,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 └─────────────────────────────────┘
 ```
 
-- Protegido por PIN de 4 dígitos
+- Protegido por PIN de 4 dígitos (padrão: 0000)
 - Progresso visual claro
 - Configurações sensoriais acessíveis
 - Suporte a múltiplos perfis
@@ -459,7 +459,7 @@ Home (Estação Central)
 ### 9.2 Frases da Nina (PT-BR)
 
 **Boas-vindas:**
-- "Olá! Eu sou a Nina! Vamos aprender juntas?"
+- "Olá! Eu sou a Nina! Vamos aprender juntos?"
 - "Que bom te ver de volta!"
 
 **Durante atividade:**
