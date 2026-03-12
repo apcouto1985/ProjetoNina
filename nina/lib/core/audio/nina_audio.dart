@@ -8,9 +8,47 @@ class NinaAudio {
 
   static Future<void> init() async {
     if (_initialized) return;
+
+    // Try to find the best PT-BR voice available
+    final voices = await _tts.getVoices;
+    if (voices is List) {
+      // Prefer PT-BR female voices
+      final ptBrVoices = voices.where((v) {
+        final locale = (v['locale'] ?? '').toString().toLowerCase();
+        return locale.contains('pt') && locale.contains('br');
+      }).toList();
+
+      if (ptBrVoices.isNotEmpty) {
+        // Prefer female voice if available
+        final female = ptBrVoices.where((v) {
+          final name = (v['name'] ?? '').toString().toLowerCase();
+          return name.contains('female') || name.contains('luciana') ||
+                 name.contains('francisca') || name.contains('google') ||
+                 name.contains('microsoft');
+        });
+        final chosen = female.isNotEmpty ? female.first : ptBrVoices.first;
+        await _tts.setVoice({
+          'name': chosen['name'].toString(),
+          'locale': chosen['locale'].toString(),
+        });
+      } else {
+        // Fallback: any Portuguese voice
+        final ptVoices = voices.where((v) {
+          final locale = (v['locale'] ?? '').toString().toLowerCase();
+          return locale.contains('pt');
+        }).toList();
+        if (ptVoices.isNotEmpty) {
+          await _tts.setVoice({
+            'name': ptVoices.first['name'].toString(),
+            'locale': ptVoices.first['locale'].toString(),
+          });
+        }
+      }
+    }
+
     await _tts.setLanguage('pt-BR');
     await _tts.setSpeechRate(0.4);
-    await _tts.setPitch(1.3);
+    await _tts.setPitch(1.2);
     _initialized = true;
   }
 
