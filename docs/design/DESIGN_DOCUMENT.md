@@ -163,18 +163,105 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 - Nina entra pela esquerda com animação
 - Fundo: céu com nuvens
 - Duração: 2-3 segundos
-- Transição suave para a Home
+- Transição suave para o Onboarding (primeira vez) ou Home (retorno)
 
-### 6.2 Tela Home (Estação Central)
+### 6.2 Onboarding (apenas na primeira abertura)
 
 ```
 ┌─────────────────────────────────┐
-│  ⭐ 12          [👤 Perfil]    │
+│                                 │
+│  Tela 1/4                       │
+│                                 │
+│          🚂                     │
+│                                 │
+│  "Olá! Eu sou a Nina!          │
+│   Qual é o seu nome?"           │
+│                                 │
+│  ┌─────────────────────────┐   │
+│  │  [Digite seu nome]      │   │
+│  └─────────────────────────┘   │
+│                                 │
+│       [▶️ Próximo]             │
+│                                 │
+└─────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────┐
+│                                 │
+│  Tela 2/4                       │
+│                                 │
+│          🚂                     │
+│                                 │
+│  "Que legal, João!              │
+│   Eu sou um trenzinho e vou     │
+│   te ajudar a aprender as       │
+│   letras!"                      │
+│                                 │
+│       [▶️ Próximo]             │
+│                                 │
+└─────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────┐
+│                                 │
+│  Tela 3/4                       │
+│                                 │
+│  🚂 "Olha, essa é a letra A!"  │
+│                                 │
+│  ┌─────────────────────────┐   │
+│  │          A              │   │
+│  │    (toque para ouvir!)  │   │
+│  └─────────────────────────┘   │
+│                                 │
+│  "Toque na letra para           │
+│   ouvir o som dela!"            │
+│                                 │
+│       [▶️ Próximo]             │
+│                                 │
+└─────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────┐
+│                                 │
+│  Tela 4/4                       │
+│                                 │
+│  🚂 "Agora tente desenhar!"    │
+│                                 │
+│  ┌─────────────────────────┐   │
+│  │    · · · · ·            │   │
+│  │    (siga os pontinhos)  │   │
+│  └─────────────────────────┘   │
+│                                 │
+│  "Siga os pontinhos com         │
+│   o dedo! Assim!"               │
+│   (animação demonstrativa)      │
+│                                 │
+│       [🚀 Vamos começar!]     │
+│                                 │
+└─────────────────────────────────┘
+```
+
+**Fluxo do Onboarding:**
+- Tela 1: Nina se apresenta e pergunta o nome da criança
+- Tela 2: Nina usa o nome da criança e explica o que vão fazer juntos
+- Tela 3: Demonstra como funciona a atividade de conhecer/ouvir uma letra
+- Tela 4: Demonstra como funciona o traçar (com animação guiada)
+- Só aparece na primeira abertura do app
+- O nome é salvo e usado nas falas da Nina ("Muito bem, João!")
+
+### 6.3 Tela Home (Estação Central)
+
+```
+┌─────────────────────────────────┐
+│  ⭐ 12    [🔇]    [👤 Perfil]  │
 │                                 │
 │         ESTAÇÃO CENTRAL         │
 │                                 │
-│    🚂 Nina: "Olá! Para onde    │
-│     vamos hoje?"                │
+│    🚂 Nina: "Olá, João!        │
+│     Para onde vamos hoje?"      │
 │                                 │
 │  ┌───────────┐  ┌───────────┐  │
 │  │           │  │           │  │
@@ -193,13 +280,14 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 ```
 
 - 4 cards grandes e tocáveis
-- Nina aparece no topo com fala
+- Nina aparece no topo com fala personalizada (usa o nome da criança)
 - Contador de estrelas no canto superior esquerdo
+- Botão de modo silencioso (🔇/🔊) no topo, acessível pela criança
 - Botão de perfil/pais no canto superior direito
 - Trilhos decorativos na parte inferior
 - "Números" aparece com cadeado suave e texto "em breve" (pós-MVP)
 
-### 6.3 Tela do Mapa de Letras (Trilho)
+### 6.4 Tela do Mapa de Letras (Trilho)
 
 ```
 ┌─────────────────────────────────┐
@@ -231,7 +319,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 - Nina posicionada na estação atual
 - Toque em estação desbloqueada = entrar na atividade
 
-### 6.4 Tela de Atividade — Conhecer a Letra
+### 6.5 Tela de Atividade — Conhecer a Letra
 
 ```
 ┌─────────────────────────────────┐
@@ -262,7 +350,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 - 3 ações: ouvir de novo, ir para traçar, ir para quiz
 - Animação de entrada da letra (cresce, gira, brilha)
 
-### 6.5 Tela de Atividade — Traçar a Letra
+### 6.6 Tela de Atividade — Traçar a Letra
 
 ```
 ┌─────────────────────────────────┐
@@ -294,7 +382,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 - Nina comemora ao completar
 - Botão de recomeçar sempre visível
 
-### 6.6 Tela de Atividade — Quiz (Identificar)
+### 6.7 Tela de Atividade — Quiz (Identificar)
 
 ```
 ┌─────────────────────────────────┐
@@ -326,7 +414,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 - Erro: card fica laranja suave, Nina diz "Quase! Tente de novo!", a opção errada some suavemente
 - Máximo 2 tentativas, depois Nina mostra a resposta certa
 
-### 6.7 Tela de Recompensa (Pós-atividade)
+### 6.8 Tela de Recompensa (Pós-atividade)
 
 ```
 ┌─────────────────────────────────┐
@@ -355,7 +443,7 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 - A letra é "carregada" para dentro do vagão (animação)
 - Opção de repetir ou avançar
 
-### 6.8 Painel dos Pais
+### 6.9 Painel dos Pais
 
 ```
 ┌─────────────────────────────────┐
@@ -372,24 +460,30 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 │  ├── Estrelas: 24              │
 │  └── Tempo hoje: 15 min        │
 │                                 │
+│  ⏱️ LIMITE DE TEMPO             │
+│  ├── Tempo sugerido    [━━●]   │
+│  │   (15/30/45/60 min ou sem   │
+│  │    limite)                   │
+│  └── Mensagem ao atingir:      │
+│      Nina sugere parar, mas    │
+│      não bloqueia o app        │
+│                                 │
 │  ⚙️ CONFIGURAÇÕES              │
 │  ├── Reduzir animações  [○ ●]  │
 │  ├── Volume dos sons    [━━●]  │
 │  ├── Música de fundo    [● ○]  │
 │  ├── Tamanho da fonte   [━●━]  │
-│  └── Contraste alto     [○ ●]  │
-│                                 │
-│  👤 PERFIS                      │
-│  ├── [Perfil 1: Maria]         │
-│  └── [+ Novo perfil]           │
+│  ├── Contraste alto     [○ ●]  │
+│  └── Alterar PIN        [→]    │
 │                                 │
 └─────────────────────────────────┘
 ```
 
 - Protegido por PIN de 4 dígitos (padrão: 0000)
 - Progresso visual claro
+- Limite de tempo: sugestão, não bloqueio. Ao atingir, Nina diz "Que tal descansar um pouco? Amanhã a gente continua!" mas a criança pode continuar
+- Opções de tempo: 15 min, 30 min, 45 min, 60 min, sem limite (padrão: sem limite)
 - Configurações sensoriais acessíveis
-- Suporte a múltiplos perfis
 
 ---
 
@@ -397,6 +491,9 @@ Em vez de uma floresta complexa, o MVP usa o cenário de uma **estação de trem
 
 ```
 Splash
+  │
+  ▼
+Onboarding (primeira vez)
   │
   ▼
 Home (Estação Central)
@@ -412,8 +509,8 @@ Home (Estação Central)
   │
   └── Painel dos Pais (PIN)
        ├── Progresso
-       ├── Configurações sensoriais
-       └── Perfis
+       ├── Limite de tempo
+       └── Configurações sensoriais
 ```
 
 ---
@@ -432,16 +529,15 @@ Home (Estação Central)
 **Máximo por letra: 3 estrelas**
 **Total possível no MVP: 78 estrelas (26 letras × 3)**
 
-### 8.2 Conquistas
+### 8.2 Conquistas (MVP)
 
 | Conquista | Condição | Ícone |
 |---|---|---|
 | Primeira Viagem | Completar a primeira letra | 🚂 |
 | Vogais Completas | Aprender A, E, I, O, U | 🌟 |
-| Meia Estrada | Completar 13 letras | 🛤️ |
 | Alfabeto Completo | Completar todas as 26 letras | 🏆 |
-| Exploradora | Revisitar 5 letras já aprendidas | 🔍 |
-| Traço Perfeito | Traçar 10 letras com sucesso | ✏️ |
+
+Conquistas adicionais planejadas para v1.0: Meia Estrada, Exploradora, Traço Perfeito, entre outras.
 
 ---
 
@@ -481,6 +577,16 @@ Home (Estação Central)
 - "Parabéns! Você ganhou uma conquista!"
 - "Olha só o que você conseguiu!"
 
+**Limite de tempo (sugestão, não bloqueio):**
+- "Que tal descansar um pouco? Amanhã a gente continua!"
+- "Você já aprendeu bastante hoje! Vamos parar?"
+
+**Onboarding:**
+- "Olá! Eu sou a Nina! Qual é o seu nome?"
+- "Que legal, [nome]! Eu vou te ajudar a aprender as letras!"
+- "Toque na letra para ouvir o som dela!"
+- "Siga os pontinhos com o dedo! Assim!"
+
 ---
 
 ## 10. Regras de Acessibilidade
@@ -505,6 +611,13 @@ Home (Estação Central)
 | Tamanho da fonte | Normal | Normal / Grande / Extra grande |
 | Contraste | Normal | Normal / Alto |
 | Velocidade da fala | Normal | Lenta / Normal / Rápida |
+| Limite de tempo | Sem limite | 15 / 30 / 45 / 60 min / Sem limite |
+
+### 10.3 Acessíveis pela criança
+
+| Configuração | Descrição |
+|---|---|
+| Modo silencioso (🔇) | Botão no topo da Home, desliga todos os sons instantaneamente |
 
 ---
 

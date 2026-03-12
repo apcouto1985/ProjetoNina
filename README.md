@@ -17,18 +17,23 @@ Criar uma ferramenta de alfabetização que:
 ## ✨ Funcionalidades
 
 ### MVP (v0.1)
+- Onboarding interativo (Nina se apresenta, pergunta o nome, ensina como usar)
 - Reconhecimento de letras A-Z com som fonético
 - Traçar letras com o dedo (escrita guiada)
 - Palavra associada por letra (A = Abelha, B = Bola...)
 - Trenzinho Nina como personagem-guia (feminina)
 - Sistema de estrelas como recompensa
+- 3 conquistas (Primeira Viagem, Vogais Completas, Alfabeto Completo)
 - Mundo temático: Estação (ambiente simples e acolhedor)
-- Painel dos pais com progresso e configurações sensoriais
+- Modo silencioso acessível pela criança
+- Painel dos pais com progresso, configurações sensoriais e limite de tempo sugerido
 - Idioma: Português (BR)
 
 ### v1.0 (planejado)
 - Números 0-20 (identificar, traçar, contar)
 - Idiomas: Inglês e Espanhol
+- Múltiplos perfis de crianças
+- Conquistas adicionais
 - Novos mundos temáticos
 
 ### v1.5 (planejado)
