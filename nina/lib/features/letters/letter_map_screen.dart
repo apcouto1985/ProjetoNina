@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../shared/theme/nina_theme.dart';
 import '../../core/i18n/letter_data.dart';
+import '../../core/storage/nina_storage.dart';
 
 class LetterMapScreen extends StatelessWidget {
   const LetterMapScreen({super.key});
@@ -32,12 +33,12 @@ class LetterMapScreen extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text('⭐', style: TextStyle(fontSize: 18)),
-                        SizedBox(width: 4),
-                        Text('0', style: TextStyle(fontWeight: FontWeight.w700)),
+                        const Text('⭐', style: TextStyle(fontSize: 18)),
+                        const SizedBox(width: 4),
+                        Text('${NinaStorage.getTotalStars()}', style: const TextStyle(fontWeight: FontWeight.w700)),
                       ],
                     ),
                   ),

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../shared/theme/nina_theme.dart';
 import '../../core/i18n/letter_data.dart';
+import '../../core/storage/nina_storage.dart';
+import '../../core/audio/nina_audio.dart';
 
 class LetterQuizScreen extends StatefulWidget {
   final String letter;
@@ -44,9 +46,19 @@ class _LetterQuizScreenState extends State<LetterQuizScreen> {
       _attempts++;
     });
 
+    if (_isCorrect!) {
+      NinaAudio.speakSuccess();
+    } else {
+      NinaAudio.speakTryAgain();
+    }
+
     Future.delayed(const Duration(milliseconds: 1200), () {
       if (!mounted) return;
       if (_isCorrect!) {
+        // Earn star only on first attempt
+        if (_attempts == 1) {
+          NinaStorage.setStarEarned(widget.letter, 'quiz');
+        }
         Navigator.pushReplacementNamed(
           context,
           NinaRoutes.reward,

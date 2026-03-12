@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../shared/theme/nina_theme.dart';
+import '../../core/storage/nina_storage.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -22,7 +23,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.dispose();
   }
 
-  void _nextPage() {
+  void _nextPage() async {
     if (_currentPage == 0) {
       final name = _nameController.text.trim();
       if (name.isEmpty) return;
@@ -34,7 +35,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      // TODO: Save child name and onboarding completed flag
+      // Save child name and mark onboarding as completed
+      await NinaStorage.setChildName(_childName);
+      await NinaStorage.setOnboardingCompleted();
+      if (!mounted) return;
       Navigator.pushReplacementNamed(context, NinaRoutes.home);
     }
   }

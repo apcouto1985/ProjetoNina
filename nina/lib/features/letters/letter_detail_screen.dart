@@ -2,15 +2,31 @@ import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../shared/theme/nina_theme.dart';
 import '../../core/i18n/letter_data.dart';
+import '../../core/storage/nina_storage.dart';
+import '../../core/audio/nina_audio.dart';
 
-class LetterDetailScreen extends StatelessWidget {
+class LetterDetailScreen extends StatefulWidget {
   final String letter;
 
   const LetterDetailScreen({super.key, required this.letter});
 
   @override
+  State<LetterDetailScreen> createState() => _LetterDetailScreenState();
+}
+
+class _LetterDetailScreenState extends State<LetterDetailScreen> {
+  @override
+  void initState() {
+    super.initState();
+    NinaStorage.setStarEarned(widget.letter, 'know');
+    // Speak the letter on entry
+    final data = LetterData.getByLetter(widget.letter);
+    NinaAudio.speakLetter(data.letter, data.word);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final data = LetterData.getByLetter(letter);
+    final data = LetterData.getByLetter(widget.letter);
 
     return Scaffold(
       body: SafeArea(
@@ -125,7 +141,7 @@ class LetterDetailScreen extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton.icon(
                       onPressed: () {
-                        // TODO: Play letter sound
+                        NinaAudio.speakLetter(data.letter, data.word);
                       },
                       icon: const Icon(Icons.volume_up_rounded),
                       label: const Text('Ouvir'),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../shared/theme/nina_theme.dart';
+import '../../core/storage/nina_storage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,6 +12,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool _isMuted = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _isMuted = NinaStorage.isMuted;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Text('⭐', style: TextStyle(fontSize: 20)),
                         const SizedBox(width: 4),
                         Text(
-                          '0',
+                          '${NinaStorage.getTotalStars()}',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                                 fontWeight: FontWeight.w700,
                               ),
@@ -47,7 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Spacer(),
                   // Mute button
                   IconButton(
-                    onPressed: () => setState(() => _isMuted = !_isMuted),
+                    onPressed: () {
+                      setState(() => _isMuted = !_isMuted);
+                      NinaStorage.setMuted(_isMuted);
+                    },
                     icon: Icon(
                       _isMuted ? Icons.volume_off_rounded : Icons.volume_up_rounded,
                       color: NinaColors.textSecondary,
@@ -92,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(width: 12),
                     Expanded(
                       child: Text(
-                        'Olá! Para onde vamos hoje?',
+                        'Olá, ${NinaStorage.childName}! Para onde vamos hoje?',
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),

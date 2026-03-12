@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../shared/theme/nina_theme.dart';
+import '../../core/storage/nina_storage.dart';
 
 class LetterTracingScreen extends StatefulWidget {
   final String letter;
@@ -148,11 +149,15 @@ class _LetterTracingScreenState extends State<LetterTracingScreen> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: ElevatedButton.icon(
-                      onPressed: () => Navigator.pushNamed(
-                        context,
-                        NinaRoutes.letterQuiz,
-                        arguments: widget.letter,
-                      ),
+                      onPressed: () {
+                        // Earn star for tracing
+                        NinaStorage.setStarEarned(widget.letter, 'trace');
+                        Navigator.pushNamed(
+                          context,
+                          NinaRoutes.letterQuiz,
+                          arguments: widget.letter,
+                        );
+                      },
                       icon: const Icon(Icons.arrow_forward_rounded),
                       label: const Text('Próximo'),
                     ),

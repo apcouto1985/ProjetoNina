@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../shared/theme/nina_theme.dart';
+import '../../core/storage/nina_storage.dart';
 
 class ParentPanelScreen extends StatefulWidget {
   const ParentPanelScreen({super.key});
@@ -11,17 +12,26 @@ class ParentPanelScreen extends StatefulWidget {
 class _ParentPanelScreenState extends State<ParentPanelScreen> {
   bool _authenticated = false;
   final _pinController = TextEditingController();
-  static const _defaultPin = '0000';
 
   // Settings state
   bool _reduceAnimations = false;
   double _effectsVolume = 0.8;
   bool _backgroundMusic = true;
   bool _highContrast = false;
-  int _timeLimitMinutes = 0; // 0 = no limit
+  int _timeLimitMinutes = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _reduceAnimations = NinaStorage.reduceAnimations;
+    _effectsVolume = NinaStorage.effectsVolume;
+    _backgroundMusic = NinaStorage.backgroundMusic;
+    _highContrast = NinaStorage.highContrast;
+    _timeLimitMinutes = NinaStorage.timeLimitMinutes;
+  }
 
   void _checkPin() {
-    if (_pinController.text == _defaultPin) {
+    if (_pinController.text == NinaStorage.pin) {
       setState(() => _authenticated = true);
     } else {
       _pinController.clear();
@@ -121,9 +131,9 @@ class _ParentPanelScreenState extends State<ParentPanelScreen> {
         _SectionCard(
           title: '📊 PROGRESSO',
           children: [
-            _InfoRow(label: 'Letras aprendidas', value: '0 / 26'),
-            _InfoRow(label: 'Estrelas', value: '0'),
-            _InfoRow(label: 'Tempo hoje', value: '0 min'),
+            _InfoRow(label: 'Letras aprendidas', value: '${NinaStorage.getLettersCompleted()} / 26'),
+            _InfoRow(label: 'Estrelas', value: '${NinaStorage.getTotalStars()}'),
+            _InfoRow(label: 'Tempo hoje', value: '${(NinaStorage.todayUsageSeconds / 60).round()} min'),
           ],
         ),
         const SizedBox(height: 16),
@@ -147,7 +157,10 @@ class _ParentPanelScreenState extends State<ParentPanelScreen> {
                   label: Text(minutes == 0 ? 'Sem limite' : '$minutes min'),
                   selected: isSelected,
                   selectedColor: NinaColors.primary.withValues(alpha: 0.2),
-                  onSelected: (_) => setState(() => _timeLimitMinutes = minutes),
+                  onSelected: (_) {
+                  setState(() => _timeLimitMinutes = minutes);
+                  NinaStorage.setTimeLimitMinutes(minutes);
+                },
                 );
               }).toList(),
             ),
@@ -162,7 +175,10 @@ class _ParentPanelScreenState extends State<ParentPanelScreen> {
             SwitchListTile(
               title: const Text('Reduzir animações'),
               value: _reduceAnimations,
-              onChanged: (v) => setState(() => _reduceAnimations = v),
+              onChanged: (v) {
+                setState(() => _reduceAnimations = v);
+                NinaStorage.setReduceAnimations(v);
+              },
               activeColor: NinaColors.primary,
               contentPadding: EdgeInsets.zero,
             ),
@@ -172,7 +188,10 @@ class _ParentPanelScreenState extends State<ParentPanelScreen> {
                 Expanded(
                   child: Slider(
                     value: _effectsVolume,
-                    onChanged: (v) => setState(() => _effectsVolume = v),
+                    onChanged: (v) {
+                  setState(() => _effectsVolume = v);
+                  NinaStorage.setEffectsVolume(v);
+                },
                     activeColor: NinaColors.primary,
                   ),
                 ),
@@ -181,14 +200,20 @@ class _ParentPanelScreenState extends State<ParentPanelScreen> {
             SwitchListTile(
               title: const Text('Música de fundo'),
               value: _backgroundMusic,
-              onChanged: (v) => setState(() => _backgroundMusic = v),
+              onChanged: (v) {
+                setState(() => _backgroundMusic = v);
+                NinaStorage.setBackgroundMusic(v);
+              },
               activeColor: NinaColors.primary,
               contentPadding: EdgeInsets.zero,
             ),
             SwitchListTile(
               title: const Text('Contraste alto'),
               value: _highContrast,
-              onChanged: (v) => setState(() => _highContrast = v),
+              onChanged: (v) {
+                setState(() => _highContrast = v);
+                NinaStorage.setHighContrast(v);
+              },
               activeColor: NinaColors.primary,
               contentPadding: EdgeInsets.zero,
             ),

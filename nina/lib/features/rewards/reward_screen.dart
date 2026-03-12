@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../shared/theme/nina_theme.dart';
 import '../../core/i18n/letter_data.dart';
+import '../../core/storage/nina_storage.dart';
+import '../../core/audio/nina_audio.dart';
 
 class RewardScreen extends StatefulWidget {
   final String letter;
@@ -28,6 +30,7 @@ class _RewardScreenState extends State<RewardScreen>
       CurvedAnimation(parent: _controller, curve: Curves.elasticOut),
     );
     _controller.forward();
+    NinaAudio.speakReward(widget.letter);
   }
 
   @override
@@ -39,6 +42,8 @@ class _RewardScreenState extends State<RewardScreen>
   @override
   Widget build(BuildContext context) {
     final data = LetterData.getByLetter(widget.letter);
+    final stars = NinaStorage.getStarsForLetter(widget.letter);
+    final newAchievements = NinaStorage.checkNewAchievements();
 
     return Scaffold(
       body: SafeArea(
@@ -54,13 +59,31 @@ class _RewardScreenState extends State<RewardScreen>
                 // Stars animation
                 ScaleTransition(
                   scale: _scaleAnimation,
-                  child: const Text('⭐ ⭐ ⭐', style: TextStyle(fontSize: 48)),
+                  child: Text(
+                    List.generate(stars, (_) => '⭐').join(' '),
+                    style: const TextStyle(fontSize: 48),
+                  ),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Você ganhou 3 estrelas!',
+                  'Você ganhou $stars ${stars == 1 ? 'estrela' : 'estrelas'}!',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
+
+                if (newAchievements.isNotEmpty) ...[
+                  const SizedBox(height: 16),
+                  for (final achievement in newAchievements)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Text(
+                        '🏅 $achievement',
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              color: NinaColors.primary,
+                              fontWeight: FontWeight.w700,
+                            ),
+                      ),
+                    ),
+                ],
 
                 const SizedBox(height: 32),
 

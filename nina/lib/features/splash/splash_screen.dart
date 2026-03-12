@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../shared/theme/nina_theme.dart';
+import '../../core/storage/nina_storage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -39,8 +40,10 @@ class _SplashScreenState extends State<SplashScreen>
   Future<void> _navigateAfterDelay() async {
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
-    // TODO: Check if onboarding was completed, navigate accordingly
-    Navigator.pushReplacementNamed(context, NinaRoutes.onboarding);
+    final route = NinaStorage.onboardingCompleted
+        ? NinaRoutes.home
+        : NinaRoutes.onboarding;
+    Navigator.pushReplacementNamed(context, route);
   }
 
   @override
